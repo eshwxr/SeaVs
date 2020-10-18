@@ -1,0 +1,65 @@
+<!-- Page which takes in Personal Details -->
+
+{% extends 'seavs/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid sidetitle">
+  <div class="row">
+    <div class="col-6">
+      <h1 class="subheading">Add your Personal Details</h1>
+      <h6>Want to go back? <a href="http://localhost:8000/addcv/">Click Here!</a></h6>
+    </div>
+    <div class="col-6">
+
+
+      <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-6">
+            {{ form.firstname|as_crispy_field }}
+          </div>
+          <div class="col-6">
+            {{ form.lastname|as_crispy_field }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-7">
+            {{ form.profession|as_crispy_field }}
+          </div>
+          <div class="col-5">
+            {{ form.title|as_crispy_field }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-5">
+            {{ form.city|as_crispy_field }}
+          </div>
+          <div class="col-4">
+            {{ form.state|as_crispy_field }}
+          </div>
+          <div class="col-3">
+            {{ form.pincode|as_crispy_field }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            {{ form.phoneno|as_crispy_field }}
+          </div>
+          <div class="col-8">
+            {{ form.emailid|as_crispy_field }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            {{ form.profile|as_crispy_field }}
+          </div>
+        </div>
+
+        <button type="submit" class="btn" >Next</button>
+      </form>
+    </div>
+  </div>
+  </div>
+  
+  {%endblock content %}
